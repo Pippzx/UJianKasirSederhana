@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kasir Waroeng</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<div class="max-w-6xl mx-auto p-6">
+
+  <!-- HEADER -->
+  <div class="flex justify-between items-center mb-6">
+    <div>
+      <h1 class="text-2xl font-bold">Kasir Waroeng</h1>
+      <p class="text-gray-500 text-sm">Kelola inventaris toko Anda dengan lebih mudah.</p>
+    </div>
+    <div class="bg-gray-200 px-4 py-2 rounded-full text-sm">
+      <span id="totalBarang">0</span> Barang
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="bg-white p-6 rounded-2xl shadow mb-6">
+    <h2 class="font-semibold mb-4">Tambah Barang Baru</h2>
+
+    <form id="formBarang" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+      <div>
+        <label class="text-sm">Nama Barang</label>
+        <input id="nama" type="text" placeholder="Contoh: Laptop Macbook Air"
+          class="w-full border rounded-lg p-2 mt-1">
+      </div>
+
+      <div>
+        <label class="text-sm">Harga Barang (Rp)</label>
+        <input id="harga" type="number" placeholder="0"
+          class="w-full border rounded-lg p-2 mt-1">
+      </div>
+
+      <div>
+        <label class="text-sm">Stok</label>
+        <input id="stok" type="number" placeholder="0"
+          class="w-full border rounded-lg p-2 mt-1">
+      </div>
+
+      <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
+        Tambah
+      </button>
+    </form>
+  </div>
+
+  <!-- FILTER -->
+  <div class="flex gap-4 mb-6">
+    <input id="filterNama" type="text" placeholder="🔍 Cari nama barang"
+      class="flex-1 border rounded-lg p-2">
+
+    <input id="filterHarga" type="number" placeholder="Rp Harga di bawah..."
+      class="w-64 border rounded-lg p-2">
+
+   <button type="button" onclick="resetForm()"class="text-gray-500 hover:text-gray-700">Reset</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="bg-white rounded-2xl shadow overflow-hidden">
+    <table class="w-full text-left">
+      <thead class="bg-gray-100 text-gray-500 text-sm">
+        <tr>
+          <th class="p-4">NAMA BARANG</th>
+          <th>HARGA</th>
+          <th>STOK</th>
+          <th class="text-center">AKSI</th>
+        </tr>
+      </thead>
+      <tbody id="tabelBarang"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="java.js"></script>
+</body>
+</html>
